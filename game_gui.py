@@ -1,5 +1,4 @@
 import tkinter
-import trivia_controller from Trivia_Controller
 
 DEFAULT_COLOUR = "#FF407D"
 CANVAS_COLOUR = "#5356FF"
