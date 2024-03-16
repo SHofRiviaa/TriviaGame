@@ -39,6 +39,8 @@ class Trivia_GUI:
         self.thumbs_down_btn = tkinter.Button(image=thumbs_down_img, bg=DEFAULT_COLOUR,width=100, height=100)
         self.thumbs_down_btn.grid(row=2, column=2)
 
+        self.get_next_question()
+
         self.window.mainloop()
 
     def get_next_question(self):

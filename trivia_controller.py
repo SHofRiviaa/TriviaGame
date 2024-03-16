@@ -18,6 +18,7 @@ class Trivia_Controller:
     def next_question(self):
         self.current_question = self.questions_list[self.question_number]
         self.question_number += 1
+        print(self.current_question)
         question = html.unescape(self.current_question.text)
         return question
 
