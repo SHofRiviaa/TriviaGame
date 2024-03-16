@@ -13,7 +13,7 @@ class Data_Trivia_Builder:
         self.num_qs = num_qs
         self.category = category
         self.difficulty = difficulty
-        self.type = type = type
+        self.type = "boolean"
 
         self.parameters = {
             "amount": self.num_qs,

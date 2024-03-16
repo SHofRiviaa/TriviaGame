@@ -10,7 +10,7 @@ class UserOptions:
         self.get_number_of_questions()
         self.get_category()
         self.get_difficulty()
-        self.get_trivia_type()
+        # self.get_trivia_type() Next Iteration
         
     def get_number_of_questions(self):
         while True:
