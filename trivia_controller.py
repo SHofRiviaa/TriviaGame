@@ -24,7 +24,7 @@ class Trivia_Controller:
 
     def check_answer(self, user_answer):
         
-        if user_answer == self.current_question.answer:
+        if user_answer.lower() == self.current_question.answer.lower():
             self.score += 1
             return True
         else:

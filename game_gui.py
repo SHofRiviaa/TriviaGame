@@ -28,7 +28,7 @@ class Trivia_GUI:
             thumbs_up_img = ImageTk.PhotoImage(img)
 
         thumbs_up_img = ImageTk.PhotoImage(img)
-        self.thumbs_up_btn = tkinter.Button(image=thumbs_up_img, bg=DEFAULT_COLOUR,width=100, height=100)
+        self.thumbs_up_btn = tkinter.Button(image=thumbs_up_img, bg=DEFAULT_COLOUR,width=100, height=100, command=self.thumbs_up_pressed)
         self.thumbs_up_btn.grid(row=2, column=0)
         
         with Image.open("images\\thumbs_down.png") as img:
@@ -36,7 +36,7 @@ class Trivia_GUI:
             thumbs_down_img = ImageTk.PhotoImage(img)
 
         thumbs_down_img = ImageTk.PhotoImage(img)
-        self.thumbs_down_btn = tkinter.Button(image=thumbs_down_img, bg=DEFAULT_COLOUR,width=100, height=100)
+        self.thumbs_down_btn = tkinter.Button(image=thumbs_down_img, bg=DEFAULT_COLOUR,width=100, height=100, command=self.thumbs_down_pressed)
         self.thumbs_down_btn.grid(row=2, column=2)
 
         self.get_next_question()
@@ -44,6 +44,7 @@ class Trivia_GUI:
         self.window.mainloop()
 
     def get_next_question(self):
+        self.canvas.config(bg=CANVAS_COLOUR)
         if self.trivia_controller.still_has_questions():
             question = self.trivia_controller.next_question()
             self.canvas.itemconfig(self.question_test, text=question)
@@ -54,11 +55,11 @@ class Trivia_GUI:
             self.thumbs_down_btn.config(state="disabled")
 
     def thumbs_up_pressed(self):
-        is_correct = self.trivia_controller.check_answer(True)
+        is_correct = self.trivia_controller.check_answer("True")
         self.give_feedback(is_correct)
 
     def thumbs_down_pressed(self):
-        is_correct = self.trivia_controller.check_answer(False)
+        is_correct = self.trivia_controller.check_answer("False")
         self.give_feedback(is_correct)
 
     def give_feedback(self, is_correct):
